@@ -12,9 +12,9 @@ namespace Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages
 {
     public class DeleteModel : PageModel
     {
-        private readonly Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Data.RazorPagesContext _context;
+        private readonly RazorPagesContext _context;
 
-        public DeleteModel(Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Data.RazorPagesContext context)
+        public DeleteModel(RazorPagesContext context)
         {
             _context = context;
         }

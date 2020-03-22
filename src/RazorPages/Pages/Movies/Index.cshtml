@@ -1,4 +1,8 @@
 ﻿@page
+@*
+    @page "{q?}"
+    这里设置的路由参数将和模型中的SearchString相同效果 \Movie\{searchString}
+*@
 @model Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.IndexModel
 
 @{
@@ -8,9 +12,24 @@
 
 <h1>Index</h1>
 
+
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form>
+    <p>
+        @*
+        注意当模型里额外设置了BindProperty的Name属性,这里asp-for将不会正确绑定到该属性.
+        这是由于设置了Name,asp.net只会通过查询字符串或form表单中的key进行匹配Name的值.
+        由于form表单的中key就是从input name属性,所以可以重载设置input name属性,asp.net便不会覆盖该值.
+        *@
+        Title: <input type="text" asp-for="SearchString" name="q" />
+        <select asp-for="SearchGenre" asp-items="Model.Genres" name="g">
+            <option value="">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -30,26 +49,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Movie) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Movie)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

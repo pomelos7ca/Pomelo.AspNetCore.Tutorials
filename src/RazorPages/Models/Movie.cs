@@ -11,12 +11,15 @@ namespace Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Models
     {
         public int ID { get; set; }
 
+        [Required]
+        [StringLength(200)]
         public string Title { get; set; }
 
         [Display(Name ="发布日期")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
+        [StringLength(30)]
         [Column(TypeName = "nvarchar(30)")]
         public string Genre { get; set; }
 

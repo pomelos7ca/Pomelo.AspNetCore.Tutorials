@@ -1,3 +1,6 @@
 ﻿@model string
 
-@Html.Raw(Markdig.Markdown.ToHtml(Model))
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    @Html.Raw(Markdig.Markdown.ToHtml(Model))
+}
