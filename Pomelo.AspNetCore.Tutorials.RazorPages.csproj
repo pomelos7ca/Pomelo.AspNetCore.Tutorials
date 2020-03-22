@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages</AssemblyName>
+    <RootNamespace>Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages</RootNamespace>
+  </PropertyGroup>
+
+
+
+</Project>
