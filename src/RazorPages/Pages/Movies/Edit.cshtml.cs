@@ -13,9 +13,9 @@ namespace Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages
 {
     public class EditModel : PageModel
     {
-        private readonly Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Data.RazorPagesContext _context;
+        private readonly RazorPagesContext _context;
 
-        public EditModel(Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Data.RazorPagesContext context)
+        public EditModel(RazorPagesContext context)
         {
             _context = context;
         }

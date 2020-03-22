@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Data;
 
 namespace Pomelo.AspNetCore.Tutorials.RazorPages.RazorPages.Migrations
 {
     [DbContext(typeof(RazorPagesContext))]
-    partial class RazorPagesContextModelSnapshot : ModelSnapshot
+    [Migration("20200322121442_addmovicedescribe")]
+    partial class addmovicedescribe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
